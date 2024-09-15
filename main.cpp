@@ -1,14 +1,14 @@
 
 /*
-  Huthsady Legend Boun 
-  Professor Edwards
-  CISP1010 O81
-  14 Sept. 2024
-  
-  Assignment = Math Tutor
-  Params = 2 Random numbers
-    added together
-    user wait for solution
+ * main.cpp
+ * Math Tutor that allows you to add two random numbers together and check to see if youre correct
+ * Huthsady Legend Boun
+ * 14 Sept. 2024
+ * Program 1 
+ * 
+ * Params: 
+ *  2 Random numbers outputted in addition format
+ *  wait for user input
 */
 #include <random>
 #include <iostream>
