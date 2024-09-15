@@ -9,6 +9,12 @@
  * Params: 
  *  2 Random numbers outputted in addition format
  *  wait for user input
+ *
+ *
+ * Flowchart:
+ * begin-> output welcome text-> generate & output two random nums-> wait for input: if input != "leave"-> output correct answer-
+ *                                                  ^                                 |->if input = "leave"-> exit program;      |
+ *                                                  |----------------------------------------------------------------------------|
 */
 #include <random>
 #include <iostream>
