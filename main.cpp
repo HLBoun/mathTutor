@@ -21,8 +21,11 @@
 #include <string>
 #include <ctime>
 
-bool stopProg  = false;
-std::string userInput = "noTexture";
+bool stopProg           = false;
+float userInput;
+std::string stringInput   = "noTexture";
+float equationSolution;
+
 
 void probCreation()
 {
@@ -30,29 +33,89 @@ void probCreation()
 
   while (stopProg == false)
   {
+    std::cout << "Would you like [Addition], [Subtraction], [Multiplication], or [Division]?\n"
+"You can also leave by typing [Leave]\n";
+    std::cin  >> stringInput;
+
     srand(time(NULL));
-    int topNum = rand() % 1000; // range of 0 to 999
-    int botNum = rand() % 1000; // ^^^^^^^^^^^^^^^^^
+    float topNum = rand() % 1000; // range of 0 to 999
+    float botNum = rand() % 1000; // ^^^^^^^^^^^^^^^^^
     
-    std::cout << "Input your answer and hit enter to check if you're correct. When you want to exit the program, enter 'leave'\n";
+    if (stringInput == "Addition" ||
+        stringInput =="addition")
+    {
+      equationSolution = topNum + botNum;
+      std::cout << "Input your answer and hit enter to check if you're correct.\n";
 
-    std::cout << "  " << topNum << "\n +" << botNum << "\n" << "------ Your Answer: ";
-    
-    std::cin >> userInput;
+      std::cout << "  " << topNum << "\n +" << botNum << "\n" << "------ Your Answer: ";
+      std::cin >> userInput;
 
-    std::cout << topNum + botNum << "\n";
-    if (userInput == "leave")
+      std::cout << equationSolution << "\n"; 
+    }
+    else if (stringInput == "Subtraction"||
+        stringInput == "subtraction")
+    {
+      equationSolution = topNum - botNum;
+
+      std::cout << "Input your answer and hit enter to check if you're correct.\n";
+      std::cout << "  " << topNum << "\n -" << botNum << "\n" << "------ Your Answer: ";
+      std::cin >> userInput;
+
+      std::cout << equationSolution << "\n";
+    }
+    else if (stringInput == "Multiplication"||
+        stringInput == "multiplication")
+    {
+      equationSolution = topNum * botNum;
+
+      std::cout << "Input your answer and hit enter to check if you're correct.\n";
+      std::cout << "  " << topNum << "\n *" << botNum << "\n" << "------ Your Answer: ";
+      std::cin >> userInput;
+
+      std::cout << equationSolution << "\n";
+
+    }
+    else if (stringInput == "Division"||
+        stringInput =="division")
+    {
+      equationSolution = topNum / botNum;
+
+      std::cout << "Input your answer (round two decimal places) and hit enter to check if you're correct.\n";
+      std::cout << "  " << topNum << "\n /" << botNum << "\n" << "------ Your Answer: ";
+      std::cin >> userInput;
+
+      // Mathematically rounds to the second decimal place.
+      equationSolution = std::round(equationSolution * 100) / 100;
+      std::cout << equationSolution << "\n";
+    }
+    else if (stringInput == "Leave" ||
+             stringInput =="leave")
     {
       stopProg = true;
     }
+    else 
+    {
+      std::cout << "Error: Please input from only the menu."; 
+    }
+
+  
+
+    // Checks if the answer is correct.
+    if (userInput == equationSolution)
+    {
+      std::cout << "You are correct!\n\n\n";
+    } 
+    else 
+    {
+      std::cout << "That is incorrect...\n\n\n";  
+    }
+
   }
 }
 
 
 
-
-
-
+// Main Funciton. Every cpp program needs it. 
 int main()
 {
   probCreation();
